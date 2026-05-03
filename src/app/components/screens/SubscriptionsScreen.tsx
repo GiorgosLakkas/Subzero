@@ -1,11 +1,59 @@
 export function SubscriptionsScreen() {
   const subscriptions = [
-    { name: 'Netflix', amount: 15.99, billing: 'Monthly', nextDate: 'May 30', lastUsed: '65 days ago', inactive: true, color: 'bg-red-500' },
-    { name: 'Spotify', amount: 9.99, billing: 'Monthly', nextDate: 'May 3', lastUsed: 'Yesterday', inactive: false, color: 'bg-green-500' },
-    { name: 'ChatGPT Plus', amount: 20.0, billing: 'Monthly', nextDate: 'May 15', lastUsed: 'Today', inactive: false, color: 'bg-purple-500' },
-    { name: 'Adobe Creative', amount: 54.99, billing: 'Monthly', nextDate: 'May 8', lastUsed: '2 days ago', inactive: false, color: 'bg-blue-500' },
-    { name: 'iCloud Storage', amount: 2.99, billing: 'Monthly', nextDate: 'May 12', lastUsed: 'Today', inactive: false, color: 'bg-gray-500' },
-    { name: 'YouTube Premium', amount: 13.99, billing: 'Monthly', nextDate: 'May 20', lastUsed: '78 days ago', inactive: true, color: 'bg-red-600' },
+    {
+      name: 'Netflix',
+      amount: 15.99,
+      billing: 'Monthly',
+      nextDate: 'May 30',
+      lastUsed: '65 days ago',
+      inactive: true,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg',
+    },
+    {
+      name: 'Spotify',
+      amount: 9.99,
+      billing: 'Monthly',
+      nextDate: 'May 3',
+      lastUsed: 'Yesterday',
+      inactive: false,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg',
+    },
+    {
+      name: 'ChatGPT Plus',
+      amount: 20.0,
+      billing: 'Monthly',
+      nextDate: 'May 15',
+      lastUsed: 'Today',
+      inactive: false,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg',
+    },
+    {
+      name: 'Adobe Creative',
+      amount: 54.99,
+      billing: 'Monthly',
+      nextDate: 'May 8',
+      lastUsed: '2 days ago',
+      inactive: false,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_Logo.png',
+    },
+    {
+      name: 'iCloud Storage',
+      amount: 2.99,
+      billing: 'Monthly',
+      nextDate: 'May 12',
+      lastUsed: 'Today',
+      inactive: false,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    },
+    {
+      name: 'YouTube Premium',
+      amount: 13.99,
+      billing: 'Monthly',
+      nextDate: 'May 20',
+      lastUsed: '78 days ago',
+      inactive: true,
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg',
+    },
   ];
 
   const total = subscriptions.reduce((sum, sub) => sum + sub.amount, 0);
@@ -29,15 +77,10 @@ export function SubscriptionsScreen() {
         </div>
       </div>
 
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-4">
-        <div className="text-sm text-green-700">
-          Average users save €45/month by cancelling inactive subscriptions.
-        </div>
-      </div>
-
       <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4">
         <div className="text-sm text-orange-700">
-          SUB ZERO found {inactive.length} inactive subscriptions. You could save €{potentialSavings.toFixed(2)}/month.
+          SUB ZERO found {inactive.length} inactive subscriptions. You could save €
+          {potentialSavings.toFixed(2)}/month.
         </div>
       </div>
 
@@ -46,11 +89,21 @@ export function SubscriptionsScreen() {
 
         <div className="space-y-3">
           {inactive.map((sub, i) => (
-            <div key={i} className="bg-white rounded-xl p-4 border border-gray-200 space-y-3">
+            <div
+              key={i}
+              className="bg-white rounded-xl p-4 border border-gray-200 space-y-3"
+            >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className={`w-12 h-12 rounded-xl ${sub.color} flex items-center justify-center text-white`}>
-                    {sub.name[0]}
+                  <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center overflow-hidden">
+                    <img
+                      src={sub.icon}
+                      alt={sub.name}
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
                   </div>
 
                   <div>
@@ -80,10 +133,20 @@ export function SubscriptionsScreen() {
 
         <div className="space-y-3">
           {subscriptions.map((sub, i) => (
-            <div key={i} className="bg-white rounded-xl p-4 border border-gray-200 flex items-center justify-between">
+            <div
+              key={i}
+              className="bg-white rounded-xl p-4 border border-gray-200 flex items-center justify-between"
+            >
               <div className="flex items-center gap-3">
-                <div className={`w-12 h-12 rounded-xl ${sub.color} flex items-center justify-center text-white`}>
-                  {sub.name[0]}
+                <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={sub.icon}
+                    alt={sub.name}
+                    className="w-8 h-8 object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
                 </div>
 
                 <div>
