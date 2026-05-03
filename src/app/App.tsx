@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { Navigation } from './components/Navigation';
 import { HomeScreen } from './components/screens/HomeScreen';
 import { SubscriptionsScreen } from './components/screens/SubscriptionsScreen';
-import { BudgetsScreen } from './components/screens/BudgetsScreen';
+import { AIScreen } from './components/screens/AIScreen';
 import { BillsScreen } from './components/screens/BillsScreen';
-import { GoalsScreen } from './components/screens/GoalsScreen';
 import { ProfileScreen } from './components/screens/ProfileScreen';
 
 export default function App() {
@@ -13,19 +12,17 @@ export default function App() {
   const renderScreen = () => {
     switch (activeScreen) {
       case 'home':
-        return <HomeScreen />;
+        return <HomeScreen onNavigate={setActiveScreen} />;
       case 'subscriptions':
         return <SubscriptionsScreen />;
-      case 'budgets':
-        return <BudgetsScreen />;
-      case 'bills':
+      case 'ai':
+        return <AIScreen />;
+      case 'overview':
         return <BillsScreen />;
-      case 'goals':
-        return <GoalsScreen />;
       case 'profile':
         return <ProfileScreen />;
       default:
-        return <HomeScreen />;
+        return <HomeScreen onNavigate={setActiveScreen} />;
     }
   };
 
