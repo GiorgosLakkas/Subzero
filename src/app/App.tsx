@@ -31,6 +31,7 @@ export default function App() {
       <div className="flex-1 overflow-y-auto pb-20">
         {renderScreen()}
       </div>
+
       <Navigation activeScreen={activeScreen} onNavigate={setActiveScreen} />
     </div>
   );

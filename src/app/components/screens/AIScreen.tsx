@@ -12,13 +12,15 @@ export function AIScreen() {
     <div className="bg-gray-50 min-h-screen">
       <div className="p-4 space-y-4 pb-24">
         <div>
-          <h1>AI Assistant</h1>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-blue-700 bg-clip-text text-transparent">
+            AI Assistant
+          </h1>
           <div className="text-sm text-gray-500 mt-1">
             Your cancellation advisor
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-purple-500 to-indigo-700 rounded-2xl p-5 text-white">
+        <div className="bg-gradient-to-br from-slate-900 to-blue-700 rounded-2xl p-5 text-white">
           <div className="flex items-center gap-2 text-sm opacity-90 mb-2">
             <Sparkles size={16} />
             Smart recommendation
@@ -35,7 +37,7 @@ export function AIScreen() {
 
         <div className="space-y-4">
           <div className="flex gap-3">
-            <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-900 to-blue-700 text-white flex items-center justify-center shrink-0">
               <Bot size={18} />
             </div>
 
@@ -52,7 +54,9 @@ export function AIScreen() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-sm">Cancel {item.name}?</div>
+                  <div className="text-sm">
+                    {item.name} looks inactive. Cancel and save?
+                  </div>
                   <div className="text-xs text-gray-500">{item.reason}</div>
                 </div>
 
@@ -60,11 +64,11 @@ export function AIScreen() {
               </div>
 
               <div className="grid grid-cols-2 gap-2">
-                <button className="bg-red-500 text-white rounded-xl py-2 text-sm">
+                <button className="bg-red-500 text-white rounded-xl py-2 text-sm font-medium transition active:scale-95">
                   Cancel
                 </button>
 
-                <button className="bg-gray-100 text-gray-700 rounded-xl py-2 text-sm">
+                <button className="bg-gray-100 text-gray-700 rounded-xl py-2 text-sm transition active:scale-95">
                   Keep
                 </button>
               </div>
@@ -72,7 +76,7 @@ export function AIScreen() {
           ))}
 
           <div className="flex gap-3">
-            <div className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-900 to-blue-700 text-white flex items-center justify-center shrink-0">
               <Bot size={18} />
             </div>
 
@@ -88,7 +92,7 @@ export function AIScreen() {
             Ask SUB ZERO AI...
           </div>
 
-          <button className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center">
+          <button className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-900 to-blue-700 text-white flex items-center justify-center transition active:scale-95">
             <Send size={16} />
           </button>
         </div>

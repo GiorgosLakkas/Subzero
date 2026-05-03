@@ -63,13 +63,15 @@ export function SubscriptionsScreen() {
   return (
     <div className="p-4 space-y-6 bg-gray-50 min-h-screen">
       <div>
-        <h1>Subscriptions</h1>
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-900 to-blue-700 bg-clip-text text-transparent">
+          Subscriptions
+        </h1>
         <div className="text-sm text-gray-500 mt-1">
           Manage your recurring payments
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-br from-slate-900 to-blue-700 rounded-2xl p-6 text-white">
         <div className="text-sm opacity-90 mb-1">Monthly Total</div>
         <div className="text-3xl">€{total.toFixed(2)}</div>
         <div className="text-sm opacity-90 mt-2">
@@ -77,8 +79,8 @@ export function SubscriptionsScreen() {
         </div>
       </div>
 
-      <div className="bg-orange-50 border border-orange-200 rounded-2xl p-4">
-        <div className="text-sm text-orange-700">
+      <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4">
+        <div className="text-sm text-blue-800">
           SUB ZERO found {inactive.length} inactive subscriptions. You could save €
           {potentialSavings.toFixed(2)}/month.
         </div>
@@ -120,7 +122,7 @@ export function SubscriptionsScreen() {
                 </div>
               </div>
 
-              <button className="w-full bg-red-500 text-white rounded-xl py-3 text-sm">
+              <button className="w-full bg-red-500 text-white rounded-xl py-3 text-sm font-medium transition active:scale-95">
                 Cancel subscription
               </button>
             </div>

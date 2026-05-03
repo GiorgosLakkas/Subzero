@@ -25,13 +25,23 @@ export function Navigation({ activeScreen, onNavigate }: NavigationProps) {
             <button
               key={item.id}
               onClick={() => onNavigate(item.id)}
-              className="flex flex-col items-center justify-center gap-1 px-3 py-2"
+              className="flex flex-col items-center justify-center gap-1 px-3 py-2 transition active:scale-95"
             >
-              <Icon
-                size={22}
-                className={isActive ? 'text-blue-600' : 'text-gray-400'}
-              />
-              <span className={`text-[10px] ${isActive ? 'text-blue-600' : 'text-gray-400'}`}>
+              <div
+                className={
+                  isActive
+                    ? 'w-9 h-9 rounded-xl bg-gradient-to-br from-slate-900 to-blue-700 flex items-center justify-center text-white shadow-sm'
+                    : 'w-9 h-9 rounded-xl flex items-center justify-center text-gray-400'
+                }
+              >
+                <Icon size={21} />
+              </div>
+
+              <span
+                className={`text-[10px] ${
+                  isActive ? 'text-blue-700 font-medium' : 'text-gray-400'
+                }`}
+              >
                 {item.label}
               </span>
             </button>
