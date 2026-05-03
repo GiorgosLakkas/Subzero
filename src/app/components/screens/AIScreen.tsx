@@ -9,8 +9,8 @@ export function AIScreen() {
   const totalSaving = suggestions.reduce((sum, item) => sum + item.saving, 0);
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-4">
+    <div className="bg-gray-50 min-h-screen">
+      <div className="p-4 space-y-4 pb-24">
         <div>
           <h1>AI Assistant</h1>
           <div className="text-sm text-gray-500 mt-1">
@@ -40,21 +40,23 @@ export function AIScreen() {
             </div>
 
             <div className="bg-white rounded-2xl rounded-tl-sm p-4 border border-gray-200 text-sm">
-              I found 2 subscriptions that look inactive. You can cancel them and save €{totalSaving.toFixed(2)} every month.
+              I found 2 subscriptions that look inactive. You can cancel them
+              and save €{totalSaving.toFixed(2)} every month.
             </div>
           </div>
 
           {suggestions.map((item, i) => (
-            <div key={i} className="ml-12 bg-white rounded-2xl p-4 border border-gray-200 space-y-3">
+            <div
+              key={i}
+              className="ml-12 bg-white rounded-2xl p-4 border border-gray-200 space-y-3"
+            >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm">Cancel {item.name}?</div>
                   <div className="text-xs text-gray-500">{item.reason}</div>
                 </div>
 
-                <div className="text-sm">
-                  €{item.saving.toFixed(2)}
-                </div>
+                <div className="text-sm">€{item.saving.toFixed(2)}</div>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -75,14 +77,13 @@ export function AIScreen() {
             </div>
 
             <div className="bg-white rounded-2xl rounded-tl-sm p-4 border border-gray-200 text-sm">
-              I recommend cancelling Netflix first because it has the highest unused cost.
+              I recommend cancelling Netflix first because it has the highest
+              unused cost.
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="p-4 bg-gray-50 border-t border-gray-200">
-        <div className="bg-white rounded-2xl border border-gray-200 p-3 flex items-center gap-2">
+        <div className="bg-white rounded-2xl border border-gray-200 p-3 flex items-center gap-2 mt-4">
           <div className="flex-1 text-sm text-gray-400">
             Ask SUB ZERO AI...
           </div>
